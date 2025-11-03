@@ -1,6 +1,7 @@
 ﻿using Exiled.API.Features;
 using Exiled.API.Features.Items;
 using Exiled.Events.EventArgs.Player;
+using Exiled.Events.EventArgs.Scp079;
 using MEC;
 using Respawning;
 using System;
@@ -66,6 +67,12 @@ namespace SCP575
 		public void OnTriggerTesla( TriggeringTeslaEventArgs ev )
 		{
 			if ( BlackoutActive && plugin.Config.DisableTeslas )
+				ev.IsAllowed = false;
+		}
+
+		public void OnGainExperience( GainingExperienceEventArgs ev )
+		{
+			if ( BlackoutActive && plugin.Config.DisableExperience )
 				ev.IsAllowed = false;
 		}
 	}

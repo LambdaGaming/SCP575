@@ -20,6 +20,7 @@ namespace SCP575
 			events.Server.RoundStarted += EventHandlers.OnRoundStart;
 			events.Server.WaitingForPlayers += EventHandlers.OnWaitingForPlayers;
 			events.Player.TriggeringTesla += EventHandlers.OnTriggerTesla;
+			events.Scp079.GainingExperience += EventHandlers.OnGainExperience;
 		}
 
 		public override void OnDisabled()
@@ -28,6 +29,7 @@ namespace SCP575
 			events.Server.RoundStarted -= EventHandlers.OnRoundStart;
 			events.Server.WaitingForPlayers -= EventHandlers.OnWaitingForPlayers;
 			events.Player.TriggeringTesla -= EventHandlers.OnTriggerTesla;
+			events.Scp079.GainingExperience -= EventHandlers.OnGainExperience;
 			EventHandlers = null;
 		}
 	}
