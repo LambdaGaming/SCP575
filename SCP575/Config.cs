@@ -36,9 +36,9 @@ namespace SCP575
 		public bool DisableExperience { get; set; } = true;
 
 		[Description( "Cassie message or sound effect that plays when a blackout starts." )]
-		public string BlackoutStartSound { get; set; } = "pitch_1.00 .G1 pitch_0.70 .G1 yield_01 pitch_0.15 .G7";
+		public string BlackoutStartSound { get; set; } = "$PITCH_1.00 .G1 $PITCH_0.70 .G1 yield_01 $PITCH_0.15 .G7";
 
 		[Description( "Cassie message or sound effect that plays when a blackout ends." )]
-		public string BlackoutEndSound { get; set; } = "pitch_0.70 .G1 pitch_1.00 .G1";
+		public string BlackoutEndSound { get; set; } = "$PITCH_0.70 .G1 $PITCH_1.00 .G1";
 	}
 }

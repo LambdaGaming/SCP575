@@ -3,7 +3,6 @@ using Exiled.API.Features.Items;
 using Exiled.Events.EventArgs.Player;
 using Exiled.Events.EventArgs.Scp079;
 using MEC;
-using Respawning;
 using System;
 using System.Collections.Generic;
 
@@ -26,13 +25,13 @@ namespace SCP575
 				if ( rand.Next( 100 ) < plugin.Config.BlackoutChance )
 				{
 					float duration = ( float ) rand.NextDouble() * ( plugin.Config.MaxDuration - plugin.Config.MinDuration ) + plugin.Config.MinDuration;
-					RespawnEffectsController.PlayCassieAnnouncement( plugin.Config.BlackoutStartSound, false, false );
+					Exiled.API.Features.Cassie.Message( plugin.Config.BlackoutStartSound );
 					Map.TurnOffAllLights( duration );
 					BlackoutActive = true;
 					Timing.RunCoroutine( AttackLoop(), "575Attack" );
 					yield return Timing.WaitForSeconds( duration );
 					Timing.KillCoroutines( "575Attack" );
-					RespawnEffectsController.PlayCassieAnnouncement( plugin.Config.BlackoutEndSound, false, false );
+					Exiled.API.Features.Cassie.Message( plugin.Config.BlackoutEndSound );
 					BlackoutActive = false;
 				}
 			}
